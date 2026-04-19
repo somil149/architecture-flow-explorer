@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 
-const awsImages = import.meta.glob('/images/aws/**/*.png', { eager: true, query: '?url' })
-const azureImages = import.meta.glob('/images/azure/**/*.png', { eager: true, query: '?url' })
+const awsImages = import.meta.glob('./images/aws/**/*.png', { eager: true, query: '?url' })
+const azureImages = import.meta.glob('./images/azure/**/*.png', { eager: true, query: '?url' })
 
 function getImagesByCategory(imagesObj) {
   const categories = {}
