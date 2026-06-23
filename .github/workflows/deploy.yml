@@ -23,6 +23,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Link images for build
+        run: |
+          mkdir -p src/images
+          ln -s ../../images/aws src/images/aws
+          ln -s ../../images/azure src/images/azure
+
+      - name: Build
+        run: npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
